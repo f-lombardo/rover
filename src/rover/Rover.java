@@ -9,7 +9,7 @@ public class Rover {
   
   private Position position = DEFAULT_STARTING_POSITION;
   private int maxX = DEFAULT_MAX_SIZE;
-  private int maxY = 100;
+  private int maxY = DEFAULT_MAX_SIZE;
 
   private Sensor sensor = Sensor.NULL;
 
