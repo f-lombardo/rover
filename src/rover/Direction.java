@@ -1,38 +1,37 @@
 package rover;
 
 public abstract class Direction {
-
   
-  public final static Direction NORTH = new Direction("N") {
-    public Position forward(int x, int y) {
-      return new Position(x, y+1, this);
-    }
+  public final static Direction NORTH = new Direction("N", 0, 1) {
   };
 
-  public final static Direction EAST = new Direction("E") {
-    public Position forward(int x, int y) {
-      return new Position(x+1, y, this);
-    }
+  public final static Direction EAST = new Direction("E", 1, 0) {
   };
   
-  public final static Direction SOUTH = new Direction("S") {
-    public Position forward(int x, int y) {
-      return new Position(x, y - 1, this);
-    }
+  public final static Direction SOUTH = new Direction("S", 0 , -1) {
   };
-  public final static Direction WEST = new Direction("W") {
-    public Position forward(int x, int y) {
-      return new Position(x-1, y, this);
-    }
+  public final static Direction WEST = new Direction("W", -1, 0) {
   };
 
-  private final String id;
+  //////////////////////////////////
+  protected final String id;
+
+  protected int versorX;
+  protected int versorY;
   
-  private Direction(String id) {
+  private Direction(String id, int versorX, int versorY) {
     this.id = id;
+    this.versorX = versorX;
+    this.versorY = versorY;
   }
   
-  public abstract Position forward(int x, int y);
+  public Position forward(int fromX, int fromY) {
+    return new Position(fromX + versorX, fromY + versorY, this);
+  }
+  
+  public Position backward(int fromX, int fromY) {
+    return new Position(fromX - versorX, fromY - versorY, this);
+  }
   
   public String toString() {
     return id;
@@ -48,4 +47,5 @@ public abstract class Direction {
   public int hashCode() {
     return id.hashCode();
   }
+
 }

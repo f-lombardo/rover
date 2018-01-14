@@ -20,4 +20,8 @@ public class Position {
     return direction.forward(x, y);
   }
 
+  public Position backward() {
+    return direction.backward(x, y);
+  }
+
 }
