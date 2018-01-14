@@ -1,18 +1,12 @@
 package rover;
 
-public abstract class Direction {
+public class Direction {
   
-  public final static Direction NORTH = new Direction("N", 0, 1) {
-  };
-
-  public final static Direction EAST = new Direction("E", 1, 0) {
-  };
+  public final static Direction NORTH = new Direction("N", 0, 1);
+  public final static Direction EAST = new Direction("E", 1, 0); 
+  public final static Direction SOUTH = new Direction("S", 0 , -1);
+  public final static Direction WEST = new Direction("W", -1, 0);
   
-  public final static Direction SOUTH = new Direction("S", 0 , -1) {
-  };
-  public final static Direction WEST = new Direction("W", -1, 0) {
-  };
-
   //////////////////////////////////
   protected final String id;
 
@@ -47,5 +41,4 @@ public abstract class Direction {
   public int hashCode() {
     return id.hashCode();
   }
-
 }

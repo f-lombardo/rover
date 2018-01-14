@@ -25,7 +25,6 @@ public class MoveCommand implements Command {
       default:
         throw new RuntimeException("Unknown verse: " + verse);
     }
-
   }
 
 }

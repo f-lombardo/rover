@@ -24,4 +24,8 @@ public class Position {
     return direction.backward(x, y);
   }
 
+  public Position turn(Rotation rotation) {
+    return new Position(x, y, rotation.turn(direction));
+  }
+
 }

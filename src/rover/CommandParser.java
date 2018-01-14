@@ -6,6 +6,7 @@ public class CommandParser {
     Parser[] parsers = {
       new StartingPositionParser(),
       new MoveParser(),
+      new TurnParser(),
     };
     
     for (Parser parser : parsers) {

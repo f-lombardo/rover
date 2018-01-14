@@ -79,4 +79,21 @@ public class RoverTest {
                          .parse(commands)
                          .getPositionAsString());
   }
+  
+  @Test 
+  public void testRoverCanTurnRight() {
+    String commands[] = {"1,2,N", "r"};
+    assertEquals("1,2,E", new Rover()
+                         .parse(commands)
+                         .getPositionAsString());
+  }
+  
+  @Test 
+  public void testRoverCanTurnLeft() {
+    String commands[] = {"1,2,N", "l"};
+    assertEquals("1,2,W", new Rover()
+                         .parse(commands)
+                         .getPositionAsString());
+  }
+  
 }
