@@ -1,7 +1,5 @@
 package rover;
 
-
-
 public class StartingPositionParser implements Parser {
 
   public Command parse(String commandString) {
@@ -13,7 +11,7 @@ public class StartingPositionParser implements Parser {
     Integer y = IntegerParser.parse(tokens[1]);
     Direction direction = DirectionParser.parse(tokens[2]);
     if (x != null && y != null && direction != null) {
-      return new StartingPositionCommand(new Position(x, y, direction));
+      return new StartingPositionCommand(new Position(new Point(x, y), direction));
     }
     return null;
   }

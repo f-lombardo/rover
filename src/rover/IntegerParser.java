@@ -1,6 +1,5 @@
 package rover;
 
-
 public class IntegerParser {
 
   public static Integer parse(String s) {

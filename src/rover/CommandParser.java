@@ -2,10 +2,16 @@ package rover;
 
 public class CommandParser {
 
+  private Sensor sensor;
+
+  public CommandParser(Sensor sensor) {
+    this.sensor = sensor;
+  }
+  
   public Command command(String commandString) {
     Parser[] parsers = {
       new StartingPositionParser(),
-      new MoveParser(),
+      new MoveParser(sensor),
       new TurnParser(),
     };
     

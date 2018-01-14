@@ -1,6 +1,5 @@
 package rover;
 
-
 import java.util.*;
 
 import static rover.Direction.*;

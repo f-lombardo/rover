@@ -3,7 +3,7 @@ package rover;
 import static rover.Direction.*;
 
 public enum Rotation {
-  LEFT(){
+  LEFT {
     public Direction turn(Direction direction) {
       return directionsRing.before(direction);
     }

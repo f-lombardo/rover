@@ -1,31 +1,44 @@
 package rover;
 
+import static rover.WrappedIndex.*;
+
+
 public class Position {
-
-  private int x;
-  private int y;
   private Direction direction;
+  private Point point;
 
-  public Position(int x, int y, Direction direction) {
-    this.x = x;
-    this.y = y;
+  public Position(Point p, Direction direction) {
+    this.point = p;
     this.direction = direction;
   }
-  
+
   public String toString() {
-    return "" + x + "," + y + "," + direction;
+    return "" + point.getX() + "," + point.getY() + "," + direction;
   }
 
   public Position forward() {
-    return direction.forward(x, y);
+    return direction.forward(point.getX(), point.getY());
   }
 
   public Position backward() {
-    return direction.backward(x, y);
+    return direction.backward(point.getX(), point.getY());
   }
 
   public Position turn(Rotation rotation) {
-    return new Position(x, y, rotation.turn(direction));
+    return new Position(point, rotation.turn(direction));
+  }
+
+  public Position wrap(int maxX, int maxY) {
+    int newX = wrappedIndex(point.getX(), maxX);
+    int newY = wrappedIndex(point.getY(), maxY);
+    if (point.getX() != newX || point.getY() != newY) {
+      return new Position(new Point(newX, newY), direction);
+    }
+    return this;
+  }
+
+  public Point getPoint() {
+    return this.point;
   }
 
 }

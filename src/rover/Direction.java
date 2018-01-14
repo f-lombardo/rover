@@ -9,7 +9,6 @@ public class Direction {
   
   //////////////////////////////////
   protected final String id;
-
   protected int versorX;
   protected int versorY;
   
@@ -20,11 +19,11 @@ public class Direction {
   }
   
   public Position forward(int fromX, int fromY) {
-    return new Position(fromX + versorX, fromY + versorY, this);
+    return new Position(new Point(fromX + versorX, fromY + versorY), this);
   }
   
   public Position backward(int fromX, int fromY) {
-    return new Position(fromX - versorX, fromY - versorY, this);
+    return new Position(new Point(fromX - versorX, fromY - versorY), this);
   }
   
   public String toString() {

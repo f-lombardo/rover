@@ -2,6 +2,8 @@ package rover;
 
 import java.util.*;
 
+import static rover.WrappedIndex.*;
+
 public class Ring<T> {
 
   private List<T> elements;
@@ -19,13 +21,7 @@ public class Ring<T> {
   }
   
   private T element(int index) {
-    if (index == -1) {
-      index = elements.size() - 1;
-    } else if (index == elements.size()) {
-      index = 0;
-    }
-
-    return elements.get(index);
+    return elements.get(wrappedIndex(index, elements.size() -1));
   }
 
 }
